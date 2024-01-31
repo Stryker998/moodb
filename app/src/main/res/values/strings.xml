@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Moodb</string>
+    <string name="title_activity_mood_edit">MoodEditActivity</string>
+</resources>
