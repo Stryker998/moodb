@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.adityabhatt.moodb.ui.EditMood
 import com.adityabhatt.moodb.ui.theme.MoodbTheme
 import java.time.LocalDate
 
@@ -28,19 +30,25 @@ class MainActivity : ComponentActivity() {
                     NavHost(
                         navController = navController,
                         startDestination = MoodScreens.MoodStart.name,
-                        ) {
+                    ) {
                         // TODO: Implement navigation
+                        composable(MoodScreens.MoodStart.name) {
+                        }
+                        composable(MoodScreens.MoodChange.name) {
+                        }
+                        composable(MoodScreens.MoodHistory.name) {
+                        }
                     }
-               }
-          }
+                }
+            }
         }
     }
 }
 
-enum class MoodScreens() {
+enum class MoodScreens {
     MoodStart,
     MoodEdit,
-    MoodAdd,
+    MoodChange,
     MoodHistory
 }
 
@@ -67,6 +75,7 @@ fun AppPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ){
+            EditMood(date = date)
         }
     }
 }
