@@ -3,10 +3,19 @@ package com.adityabhatt.moodb.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.time.LocalDateTime
 
 class EditMoodViewModel: ViewModel() {
+    var currentDate = LocalDateTime.now()
+    val listOfCauses = listOf(
+        "Great night sleep",
+        "Exercised first thing",
+        "Worked on most important task"
+    )
+    val mood = Mood.GOOD_MOOD
+    val moodData = MoodData(0, currentDate, listOfCauses, mood)
     private val _causeLists = MutableLiveData(
-        listOf<String>()
+        moodData.causeList
     )
     val causeLists: LiveData<List<String>> get() = _causeLists
 
